@@ -1,10 +1,27 @@
+import 'package:firebase_connection/app/screens/stall_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
 import '../routes/app_routes.dart';
+import 'chat_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  _HomeScreenState createState() =>
+      _HomeScreenState(); // Corrected the class name here
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  // Extending State<HomeScreen> here
   final HomeController controller = Get.find<HomeController>();
+  void _onItemTapped(int index) {
+    setState(() {
+      controller.currentTab.value = index;
+      print("controller.currentTab.value => ${controller.currentTab.value}");
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,18 +33,19 @@ class HomeScreen extends StatelessWidget {
             return Center(child: Text("Home"));
           case 1:
             return Center(
-              child: ElevatedButton(
-                onPressed: () => Get.toNamed(AppRoutes.chat),
-                child: Text("Go to Chat"),
-              ),
+              child: ChatScreen(),
+              // child: ElevatedButton(
+              //   onPressed: () => Get.toNamed(AppRoutes.chat),
+              //   child: Text("Go to Chat"),
+              // ),
             );
-
           case 2:
             return Center(
-              child: ElevatedButton(
-                onPressed: () => Get.toNamed(AppRoutes.stall),
-                child: Text("Go to Stall"),
-              ),
+              child: StallScreen(),
+              // child: ElevatedButton(
+              //   onPressed: () => Get.toNamed(AppRoutes.stall),
+              //   child: Text("Go to Stall"),
+              // ),
             );
 
           default:
@@ -37,7 +55,8 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: Obx(() {
         return BottomNavigationBar(
           currentIndex: controller.currentTab.value,
-          onTap: controller.changeTab,
+          // onTap: controller.changeTab,
+          onTap: _onItemTapped,
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Chat"),
