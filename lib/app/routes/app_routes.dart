@@ -1,3 +1,4 @@
+import 'package:firebase_connection/chatPageTest/chat_modual.dart';
 import 'package:get/get.dart';
 import '../screens/login_screen.dart';
 import '../screens/home_screen.dart';
@@ -13,12 +14,18 @@ class AppRoutes {
   static const chat = '/chat';
   static const stall = '/stall';
   static const signin = '/signin';
+  static const chatmodual = '/chatmodual';
 
   static final pages = [
     GetPage(name: login, page: () => LoginScreen()),
     GetPage(name: home, page: () => HomeScreen(), binding: HomeBinding()),
     GetPage(name: chat, page: () => ChatScreen(), binding: ChatBinding()),
     GetPage(name: stall, page: () => StallScreen()),
-    GetPage(name: signin, page: () => RegistrationScreen())
+    GetPage(name: signin, page: () => RegistrationScreen()),
+    GetPage(
+        name: chatmodual,
+        page: () => ChatScreen1(
+              contactPhoneNumber: '',
+            ))
   ];
 }

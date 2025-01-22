@@ -34,8 +34,12 @@ dependencies:
   firebase_auth: any
   firebase_core_dart: any
   cloud_firestore: any
-#  firebase_auth : any
+  permission_handler: any
+  flutter_chat_ui: any
+  stream_chat_flutter_core: any
   provider: any
+  contacts_service: any
+
 
 
 

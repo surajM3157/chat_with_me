@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       // initialRoute: AppRoutes.login,
-      initialRoute: AppRoutes.home,
+      // initialRoute: AppRoutes.home,
+      initialRoute: AppRoutes.chatmodual,
       getPages: AppRoutes.pages,
     );
   }
