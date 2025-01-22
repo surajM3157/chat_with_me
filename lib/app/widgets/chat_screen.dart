@@ -1,6 +1,5 @@
+import 'package:firebase_connection/app/screens/chat_screen_tab.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../controllers/chat_controller.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -9,8 +8,10 @@ class ChatScreen extends StatefulWidget {
   _ChatScreenState createState() => _ChatScreenState();
 }
 
-class _ChatScreenState extends State<ChatScreen> with SingleTickerProviderStateMixin {
+class _ChatScreenState extends State<ChatScreen>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  final TextEditingController _textEditingController = TextEditingController();
 
   @override
   void initState() {
@@ -21,6 +22,7 @@ class _ChatScreenState extends State<ChatScreen> with SingleTickerProviderStateM
   @override
   void dispose() {
     _tabController.dispose();
+    _textEditingController.dispose();
     super.dispose();
   }
 
@@ -41,7 +43,8 @@ class _ChatScreenState extends State<ChatScreen> with SingleTickerProviderStateM
       body: TabBarView(
         controller: _tabController,
         children: const [
-          Center(child: Text("Chat Tab")),
+          // Center(child: Text("Chat Tab")),
+          ChatScreenTab(),
           Center(child: Text("Friend Requests")),
           Center(child: Text("Call Logs")),
         ],

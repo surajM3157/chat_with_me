@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import '../screens/login_screen.dart';
 import '../screens/home_screen.dart';
-import '../screens/chat_screen.dart';
+import '../widgets/chat_screen.dart';
 import '../screens/registration_Screen.dart';
 import '../screens/stall_screen.dart';
 import '../bindings/home_binding.dart';

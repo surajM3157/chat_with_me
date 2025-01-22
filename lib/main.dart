@@ -5,6 +5,10 @@ import 'app/routes/app_routes.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   // await Firebase.initializeApp();
   runApp(MyApp());
 }
@@ -14,7 +18,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.login,
+      // initialRoute: AppRoutes.login,
+      initialRoute: AppRoutes.home,
       getPages: AppRoutes.pages,
     );
   }
